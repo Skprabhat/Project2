@@ -9,15 +9,20 @@ public class Player1 : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float jumptime;
-    public Transform groundCheck;
     public float checkRadius;
-    public LayerMask whatIsGround;
     private float jumpTimeCounter;
     private float inputX;
+
+    public GameObject panel;
+
+    public Transform groundCheck;   
+    public LayerMask whatIsGround;
     private Rigidbody2D rb;
+
     private bool isGrounded;
     private bool isJumping;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -25,12 +30,17 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //checking whether player is Grounded or not
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        //getting x-axis Input
-        inputX = Input.GetAxisRaw("Horizontal");
-        //calling Jump Function
-        Jump();
+        if (!panel.activeInHierarchy)
+        {
+            //checking whether player is Grounded or not
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            //getting x-axis Input
+            inputX = Input.GetAxisRaw("Horizontal");
+            //calling Jump Function
+       
+            Jump();
+
+        }
     }
     private void FixedUpdate()
     {
@@ -62,6 +72,13 @@ public class Player1 : MonoBehaviour
             {
                 isJumping = false;
             }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Spikes")
+        {
+            panel.SetActive(true);
         }
     }
 }
