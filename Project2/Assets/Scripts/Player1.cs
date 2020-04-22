@@ -24,6 +24,8 @@ public class Player1 : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
 
+    RaycastHit hit;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -31,6 +33,8 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checking on MouseClick
+        mouseClick();
         //checking whether player is Grounded or not
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         //getting x-axis Input
@@ -68,6 +72,18 @@ public class Player1 : MonoBehaviour
             else
             {
                 isJumping = false;
+            }
+        }
+    }
+    void mouseClick()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray,out hit))
+            {
+                Destroy(GameObject.Find(hit.collider.name));
             }
         }
     }
