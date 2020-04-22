@@ -18,10 +18,10 @@ public class Currency : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //Should Add Particle Effect Particle Effect
-            Destroy(gameObject);
-        }
+        //if (collision.gameObject.CompareTag("Ground"))
+        //{
+        //    //Should Add Particle Effect Particle Effect
+        //    Destroy(gameObject);
+        //}
     }
 }
