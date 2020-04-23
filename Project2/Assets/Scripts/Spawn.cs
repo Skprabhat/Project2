@@ -8,6 +8,8 @@ public class Spawn : MonoBehaviour
     public Transform position2;
     public GameObject[] spawnObj;
 
+    public CameraMovement instance;
+
 
     Vector3 spawnPos;
     public float spawnTime;
@@ -16,6 +18,8 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         timer = spawnTime;
+        instance = GameObject.Find("CamShake").GetComponent<CameraMovement>();
+
     }
 
     // Update is called once per frame
@@ -30,7 +34,11 @@ public class Spawn : MonoBehaviour
         {
             GameObject spawnObj1 = spawnObj[Random.Range(0, spawnObj.Length)];
             //Spawing currency
-            Instantiate(spawnObj1,spawnPos,Quaternion.identity);
+            if(instance.pause == true)
+            {
+                Instantiate(spawnObj1, spawnPos, Quaternion.identity);
+
+            }
             timer = spawnTime;
         }
     }
