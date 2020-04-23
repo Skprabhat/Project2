@@ -6,7 +6,9 @@ public class Spawn : MonoBehaviour
 {
     public Transform position1;
     public Transform position2;
-    public GameObject spawnObj;
+    public GameObject[] spawnObj;
+
+
     Vector3 spawnPos;
     public float spawnTime;
     float timer;
@@ -26,8 +28,9 @@ public class Spawn : MonoBehaviour
         }
         else
         {
+            GameObject spawnObj1 = spawnObj[Random.Range(0, spawnObj.Length)];
             //Spawing currency
-            Instantiate(spawnObj,spawnPos,Quaternion.identity);
+            Instantiate(spawnObj1,spawnPos,Quaternion.identity);
             timer = spawnTime;
         }
     }

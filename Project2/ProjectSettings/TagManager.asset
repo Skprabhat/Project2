@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Coin
   - Water
+  - currency
+  - barrier
   layers:
   - Default
   - TransparentFX

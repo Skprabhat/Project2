@@ -34,7 +34,7 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         //checking on MouseClick
-        mouseClick();
+       // mouseClick();
         //checking whether player is Grounded or not
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         //getting x-axis Input
@@ -78,14 +78,29 @@ public class Player1 : MonoBehaviour
     }
     void mouseClick()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            if (Physics.Raycast(ray,out hit))
-            {
-                Destroy(GameObject.Find(hit.collider.name));
+            if (hit.collider != null)
+            { 
+                if (hit.collider.gameObject == gameObject)
+                { 
+                    Destroy(gameObject); 
+                }
+                    
             }
         }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+        //    if (Physics.Raycast(ray,out hit))
+        //    {
+        //        CircleCollider2D cc = hit.collider as CircleCollider2D;
+        //        Destroy(GameObject.Find(hit.collider.name));
+        //    }
+        //}
     }
 }
