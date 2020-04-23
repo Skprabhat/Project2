@@ -54,6 +54,7 @@ public class Player1 : MonoBehaviour
         {
             isJumping = true;
             jumpTimeCounter = jumptime;
+            FindObjectOfType<AudioManager>().play("Jump");
             rb.velocity = Vector2.up * jumpForce;
         }
         //setting isjump to false

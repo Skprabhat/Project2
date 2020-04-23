@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c35b19cc2dbda74ea703e12392db85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTime: 1
-  maxSpawnTime: 2
+  minSpawnTime: 2
+  maxSpawnTime: 3
   isReloaded: 0
   bullet: {fileID: 6935150731840462159, guid: 432f38933ae8f8548b631ca35ee57ec3, type: 3}
   isLeft: 0
