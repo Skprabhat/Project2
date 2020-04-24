@@ -12,7 +12,6 @@ public class CameraPause : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("sii");
         if (collision.gameObject.tag == "barrier")
         {
             Debug.Log("hi");

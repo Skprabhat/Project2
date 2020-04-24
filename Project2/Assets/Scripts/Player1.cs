@@ -24,24 +24,21 @@ public class Player1 : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
 
-    RaycastHit hit;
-
     void Start()
     {
+        Time.timeScale = 1;
         rb = this.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
     {
-        //checking on MouseClick
-       // mouseClick();
         //checking whether player is Grounded or not
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         //getting x-axis Input
         inputX = Input.GetAxisRaw("Horizontal");
         //calling Jump Function
         Jump();
-
+        EndGame();
     }
     private void FixedUpdate()
     {
@@ -76,31 +73,15 @@ public class Player1 : MonoBehaviour
             }
         }
     }
-    void mouseClick()
+    void EndGame()
     {
-        if (Input.GetMouseButtonDown(0))
+        FindObjectOfType<ScoreManager>().GameOver();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Spikes"))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.collider != null)
-            { 
-                if (hit.collider.gameObject == gameObject)
-                { 
-                    Destroy(gameObject); 
-                }
-                    
-            }
+            EndGame();
         }
-        //if(Input.GetMouseButtonDown(0))
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-        //    if (Physics.Raycast(ray,out hit))
-        //    {
-        //        CircleCollider2D cc = hit.collider as CircleCollider2D;
-        //        Destroy(GameObject.Find(hit.collider.name));
-        //    }
-        //}
     }
 }

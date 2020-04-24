@@ -28,6 +28,7 @@ public class CameraMovement : MonoBehaviour
             //checking whether player is inside the cam or not
             if (PlayerScreenPos.z > 0 && (PlayerScreenPos.x > 0 && PlayerScreenPos.x < 1) && (PlayerScreenPos.y > 0 && PlayerScreenPos.y < 1))
             {
+                //Add player prefab to camera
                 Debug.Log("1");
             }
             else
@@ -45,7 +46,6 @@ public class CameraMovement : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 100f);
             if (hit.collider != null && hit.collider.tag == "currency")
             {
-                //Debug.Log(hit.collider.tag);
                 Destroy(hit.collider.gameObject);
                
             }
