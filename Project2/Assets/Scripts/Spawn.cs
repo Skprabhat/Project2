@@ -25,8 +25,8 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnPos=new Vector3( Random.Range(position1.position.x, position2.position.x),this.position1.position.y,this.position1.position.z);
-        if(timer>0)
+        spawnPos = new Vector3(Random.Range(position1.position.x, position2.position.x), this.position1.position.y, this.position1.position.z);
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
@@ -34,7 +34,7 @@ public class Spawn : MonoBehaviour
         {
             GameObject spawnObj1 = spawnObj[Random.Range(0, spawnObj.Length)];
             //Spawing currency
-            if(instance.pause == true)
+            if (instance.pause == true)
             {
                 Instantiate(spawnObj1, spawnPos, Quaternion.identity);
 
