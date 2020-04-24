@@ -6,6 +6,12 @@ public class Currency : MonoBehaviour
 {
     public float speed;
 
+    private void Awake()
+    {
+        Invoke("Function", 4f);
+
+    }
+
     void Update()
     {
         //moving gameobj downwards
@@ -19,4 +25,9 @@ public class Currency : MonoBehaviour
         //    Destroy(gameObject);
         //}
     }
+    void Function()
+    {
+        Destroy(gameObject);
+    }
+
 }

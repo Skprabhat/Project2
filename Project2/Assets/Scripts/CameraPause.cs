@@ -18,6 +18,7 @@ public class CameraPause : MonoBehaviour
             Debug.Log("hi");
             instance.pause = true;
             Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

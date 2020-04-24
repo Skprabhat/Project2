@@ -37,16 +37,17 @@ public class Spawn : MonoBehaviour
             if (instance.pause == true)
             {
                 Instantiate(spawnObj1, spawnPos, Quaternion.identity);
-
+                //Destroy(spawnObj1, 4f);
             }
+           
             timer = spawnTime;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

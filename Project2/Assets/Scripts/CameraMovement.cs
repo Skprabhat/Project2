@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
     Vector3 camerPos;
 
     public Transform player;
+    public GameObject hitCheck;
 
 
     public float speed;
@@ -42,14 +43,11 @@ public class CameraMovement : MonoBehaviour
             Vector2 mousePos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
                                            Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 100f);
-            if (hit.collider != null && hit.collider.tag != "currency")
+            if (hit.collider != null && hit.collider.tag == "currency")
             {
-                Debug.Log("u cant click on that");
-            }
-            else
-            {
+                //Debug.Log(hit.collider.tag);
                 Destroy(hit.collider.gameObject);
-
+               
             }
         }
         if (pause == true)
@@ -64,6 +62,7 @@ public class CameraMovement : MonoBehaviour
                 speed = 0.01f;
                 MoveCam();
                 pause = false;
+                Invoke("Function", 2f);
             }
         }
     }
@@ -76,5 +75,8 @@ public class CameraMovement : MonoBehaviour
         camerPos.z = -10;
         this.transform.position = camerPos;
     }
-
+    void Function()
+    {
+        hitCheck.SetActive(true);
+    }
 }
