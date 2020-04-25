@@ -14,8 +14,8 @@ public class Player1 : MonoBehaviour
     public float checkRadius;
     private float jumpTimeCounter;
     private float inputX;
-
-    //public GameObject panel;
+    [HideInInspector]
+    public float waterTimer = 6f;
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
@@ -23,7 +23,7 @@ public class Player1 : MonoBehaviour
 
     private bool isGrounded;
     private bool isJumping;
-
+    private bool inWater;
     void Start()
     {
         Time.timeScale = 1;
@@ -38,6 +38,9 @@ public class Player1 : MonoBehaviour
         inputX = Input.GetAxisRaw("Horizontal");
         //calling Jump Function
         Jump();
+
+        watertimer();
+
         EndGame();
     }
     private void FixedUpdate()
@@ -77,11 +80,35 @@ public class Player1 : MonoBehaviour
     {
         FindObjectOfType<ScoreManager>().GameOver();
     }
+    void watertimer()
+    {
+        if (inWater)
+        {
+            if (waterTimer > 0)
+                waterTimer -= Time.deltaTime;
+        }
+        if (!inWater)
+        {
+            if (waterTimer < 6)
+                waterTimer += (Time.deltaTime);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Spikes"))
         {
             EndGame();
+        }
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            inWater = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            inWater = false;
         }
     }
 }

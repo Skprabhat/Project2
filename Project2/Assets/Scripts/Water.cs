@@ -5,7 +5,8 @@ using UnityEngine;
 public class Water : MonoBehaviour
 {
     private bool inWater;
-    private float waterTimer=2;
+    [HideInInspector]
+    public float waterTimer=2;
     // Start is called before the first frame update
     void Start()
     {
