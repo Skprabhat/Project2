@@ -12,4 +12,8 @@ public class scenemanager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("M_M");
+    }
 }
