@@ -14,7 +14,6 @@ public class CameraPause : MonoBehaviour
     {
         if (collision.gameObject.tag == "barrier")
         {
-            Debug.Log("hi");
             instance.pause = true;
             Destroy(collision.gameObject);
             gameObject.SetActive(false);

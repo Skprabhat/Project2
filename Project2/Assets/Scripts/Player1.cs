@@ -92,16 +92,28 @@ public class Player1 : MonoBehaviour
             if (waterTimer < 6)
                 waterTimer += (Time.deltaTime);
         }
+        //gameover when watertimer < 0
+        if (waterTimer < 0)
+        {
+            FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+            EndGame();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Spikes"))
+        if (collision.gameObject.CompareTag("Spikes"))
         {
+            FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
             EndGame();
         }
         if (collision.gameObject.CompareTag("Water"))
         {
             inWater = true;
+        }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+            EndGame();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

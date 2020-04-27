@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public GameObject GameOverMenu;
     bool isPause;
     public Slider oxygen;
     public Player1 p;
@@ -12,6 +13,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oxygen.value = p.waterTimer;
     }
     // Update is called once per frame
     void Update()
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour
             PauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
+        //setting slidedr value to waterTimer from PLyer script
         oxygen.value = p.waterTimer;
     }
 }

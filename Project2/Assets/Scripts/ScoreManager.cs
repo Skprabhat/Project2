@@ -14,11 +14,11 @@ public class ScoreManager : MonoBehaviour
     }
     public void IncreaseCoin()
     {
-        thisGameCoins += 100; //Whatever you do to get a coin.
+        thisGameCoins += 100; 
     }
     public void GameOver()
     {
-        PlayerPrefs.SetInt("Coins", coins + thisGameCoins); //Here we are setting (saving) the coins to be sum of the old coins + the new coins!
+        PlayerPrefs.SetInt("Coins", coins + thisGameCoins); //saving and adding coins
         PlayerPrefs.Save();
     }
 }

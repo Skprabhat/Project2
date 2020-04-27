@@ -46,7 +46,19 @@ MonoBehaviour:
   sounds:
   - name: Jump
     clip: {fileID: 8300000, guid: 64e52b8434068ba428354dc4e8ebe6a4, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Pickup
+    clip: {fileID: 8300000, guid: 6130a493d0d50814ab80bfc260ebc30f, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 68747cffef8988e41979584e1eeb0b09, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

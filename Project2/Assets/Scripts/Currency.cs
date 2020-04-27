@@ -17,16 +17,9 @@ public class Currency : MonoBehaviour
         //moving gameobj downwards
         transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.gameObject.CompareTag("Ground"))
-        //{
-        //    //Should Add Particle Effect Particle Effect
-        //    Destroy(gameObject);
-        //}
-    }
     void Function()
     {
+        //destroying gob after 4 sec
         Destroy(gameObject);
     }
 
