@@ -26,9 +26,10 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
-                //GameOver
-                FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
-                FindObjectOfType<Player1>().EndGame();
+                Debug.Log("outside cam");
+                ////GameOver
+                //FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+                //FindObjectOfType<Player1>().EndGame();
             }
         }
 
