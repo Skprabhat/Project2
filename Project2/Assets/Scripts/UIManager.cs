@@ -24,15 +24,15 @@ public class UIManager : MonoBehaviour
         {
             isPause = !isPause;
         }
-        if(isPause)
+        if (isPause)
         {
             PauseMenu.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         }
         else
         {
             PauseMenu.SetActive(false);
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
         //setting slidedr value to waterTimer from PLyer script
         oxygen.value = p.waterTimer;

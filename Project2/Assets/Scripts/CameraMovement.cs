@@ -14,12 +14,6 @@ public class CameraMovement : MonoBehaviour
     public bool pause = false;
     public float timer = 10f;
 
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
         if (player != null)
@@ -28,12 +22,13 @@ public class CameraMovement : MonoBehaviour
             //checking whether player is inside the cam or not
             if (PlayerScreenPos.z > 0 && (PlayerScreenPos.x > 0 && PlayerScreenPos.x < 1) && (PlayerScreenPos.y > 0 && PlayerScreenPos.y < 1))
             {
-                //Add player prefab to camera
-                Debug.Log("1");
+                //Do Nothing
             }
             else
             {
-                Debug.Log("0");
+                //GameOver
+                FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+                FindObjectOfType<Player1>().EndGame();
             }
         }
 
@@ -47,7 +42,7 @@ public class CameraMovement : MonoBehaviour
             if (hit.collider != null && hit.collider.tag == "currency")
             {
                 Destroy(hit.collider.gameObject);
-               
+
             }
         }
         if (pause == true)

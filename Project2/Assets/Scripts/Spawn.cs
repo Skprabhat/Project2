@@ -39,7 +39,7 @@ public class Spawn : MonoBehaviour
                 Instantiate(spawnObj1, spawnPos, Quaternion.identity);
                 //Destroy(spawnObj1, 4f);
             }
-           
+
             timer = spawnTime;
         }
     }

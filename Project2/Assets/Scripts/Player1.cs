@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour
     public float checkRadius;
     private float jumpTimeCounter;
     private float inputX;
-    [HideInInspector]
+
     public float waterTimer = 6f;
 
     public Transform groundCheck;
@@ -76,7 +76,7 @@ public class Player1 : MonoBehaviour
             }
         }
     }
-    void EndGame()
+    public void EndGame()
     {
         FindObjectOfType<ScoreManager>().GameOver();
     }

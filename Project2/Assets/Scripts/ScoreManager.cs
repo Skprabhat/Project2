@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     }
     public void IncreaseCoin()
     {
-        thisGameCoins += 100; 
+        thisGameCoins += 100;
     }
     public void GameOver()
     {
