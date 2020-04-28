@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c348f7281eb860a4886548fe82be5769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 167909766}
+  player: {fileID: 775122369}
   hitCheck: {fileID: 1177764601}
   speed: 0.01
   pause: 0
