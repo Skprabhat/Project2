@@ -11,6 +11,11 @@ TagManager:
   - currency
   - barrier
   - Bullet
+  - push
+  - pull
+  - pullr
+  - Dpush
+  - player
   layers:
   - Default
   - TransparentFX
