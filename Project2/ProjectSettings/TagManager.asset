@@ -16,6 +16,7 @@ TagManager:
   - pullr
   - Dpush
   - player
+  - WaterBarrier
   layers:
   - Default
   - TransparentFX
