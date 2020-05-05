@@ -4,14 +4,15 @@ using UnityEngine;
 public class Collectables : MonoBehaviour
 {
     public GameObject PickupEffect;
-    public ScoreManager instance;
+   // public ScoreManager instance;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
+            Debug.Log("fii");
             Instantiate(PickupEffect, collision.gameObject.transform.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().play("Pickup");
-            FindObjectOfType<ScoreManager>().IncreaseCoin();
+           // FindObjectOfType<AudioManager>().play("Pickup");
+           //FindObjectOfType<ScoreManager>().IncreaseCoin();
             Destroy(collision.gameObject);
         }
     }

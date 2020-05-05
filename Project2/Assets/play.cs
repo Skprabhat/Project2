@@ -105,7 +105,7 @@ public class play : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "WaterBarrier") ;
+        if (collision.gameObject.tag == "WaterBarrier") 
         {
             gameObject.SetActive(false);
         }
