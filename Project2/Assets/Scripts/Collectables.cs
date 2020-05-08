@@ -9,10 +9,9 @@ public class Collectables : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("fii");
             Instantiate(PickupEffect, collision.gameObject.transform.position, Quaternion.identity);
-           // FindObjectOfType<AudioManager>().play("Pickup");
-           //FindObjectOfType<ScoreManager>().IncreaseCoin();
+            FindObjectOfType<AudioManager>().play("Pickup");
+            FindObjectOfType<ScoreManager>().IncreaseCoin();
             Destroy(collision.gameObject);
         }
     }
