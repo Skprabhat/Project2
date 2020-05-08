@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class play : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class play : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
     private Rigidbody2D rb;
+    public GameObject player2;
+   
 
     private bool isGrounded;
     private bool isJumping;
@@ -31,8 +34,10 @@ public class play : MonoBehaviour
 
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+      
         Time.timeScale = 1;
-        rb = this.GetComponent<Rigidbody2D>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -108,6 +113,20 @@ public class play : MonoBehaviour
         if (collision.gameObject.tag == "WaterBarrier") 
         {
             gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "EndGame")
+        {
+         
+            gameObject.SetActive(false);
+            player2.SetActive(true);
+            SceneManager.LoadScene("Level3load");
+            
+        }
+        if (collision.gameObject.tag == "EndGame3")
+        {
+            gameObject.SetActive(false);
+
+            SceneManager.LoadScene("Level4load");
         }
     }
 

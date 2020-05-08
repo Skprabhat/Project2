@@ -17,6 +17,10 @@ TagManager:
   - Dpush
   - player
   - WaterBarrier
+  - EndGame
+  - EndGame1
+  - EndGame2
+  - EndGame3
   layers:
   - Default
   - TransparentFX

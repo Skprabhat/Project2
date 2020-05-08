@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
@@ -122,5 +123,18 @@ public class Player1 : MonoBehaviour
         {
             inWater = false;
         }
+        if (collision.gameObject.tag == "EndGame2")
+        {
+            //gameObject.SetActive(false);
+
+            SceneManager.LoadScene("Load2");
+        }
+        if (collision.gameObject.tag == "EndGame1")
+        {
+          //  gameObject.SetActive(false);
+
+            SceneManager.LoadScene("Load1");
+        }
     }
+ 
 }
