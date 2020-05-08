@@ -26,10 +26,13 @@ public class play : MonoBehaviour
     public LayerMask whatIsGround;
     private Rigidbody2D rb;
     public GameObject player2;
+    public GameObject Pausepanel;
+    public GameObject GameoverPanel;
    
 
     private bool isGrounded;
     private bool isJumping;
+    bool isPause;
     private bool canJump = true;
 
     void Start()
@@ -42,6 +45,21 @@ public class play : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPause = !isPause;
+        }
+        if (isPause)
+        {
+            Pausepanel.SetActive(true);
+            //Time.timeScale = 0;
+        }
+        else
+        {
+            Pausepanel.SetActive(false);
+            //Time.timeScale = 1;
+        }
         if (gameObject.transform.position.y < -39.0f)
         {
             Debug.Log("dead");
@@ -127,6 +145,18 @@ public class play : MonoBehaviour
             gameObject.SetActive(false);
 
             SceneManager.LoadScene("Level4load");
+        }
+        if (collision.gameObject.tag == "Spikes")
+        {
+            GameoverPanel.SetActive(true);
+        }
+        if (collision.gameObject.tag == "WaterBarrier")
+        {
+            GameoverPanel.SetActive(true);
+        }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            GameoverPanel.SetActive(true);
         }
     }
 

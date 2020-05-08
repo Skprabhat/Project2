@@ -33,6 +33,7 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //checking whether player is Grounded or not
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         //getting x-axis Input

@@ -1955,7 +1955,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7696783571006382699, guid: 61d0bf55a39f34e4890a607daa8b02d0,
           type: 3}
-        m_MethodName: NextLeve2
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

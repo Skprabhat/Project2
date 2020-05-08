@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player2 : MonoBehaviour
 {
@@ -29,10 +30,13 @@ public class Player2 : MonoBehaviour
     public LayerMask whatIsGround;
     private Rigidbody2D rb;
     public CameraShake CS;
+    public GameObject Pausepanel;
+    public GameObject GameoverPanel;
 
 
     private bool isGrounded;
     private bool isJumping;
+    bool isPause;
     private bool canJump = true;
     private bool underWater = false;
     private bool pullZone = false;
@@ -52,6 +56,21 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPause = !isPause;
+        }
+        if (isPause)
+        {
+            Pausepanel.SetActive(true);
+            //Time.timeScale = 0;
+        }
+        else
+        {
+            Pausepanel.SetActive(false);
+            //Time.timeScale = 1;
+        }
+
         if (gameObject.transform.position.y < -4f)
         {
             // Debug.Log("under");
@@ -174,10 +193,11 @@ public class Player2 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Spikes"))
-        {
-            EndGame();
-        }
+        //if (collision.gameObject.CompareTag("Spikes"))
+        //{
+        //    EndGame();
+        //}
+       
 
         if (collision.gameObject.CompareTag("pull"))
         {
@@ -217,6 +237,22 @@ public class Player2 : MonoBehaviour
         if (collision.gameObject.CompareTag("Dpush"))
         {
             dPush = false;
+        }
+        if (collision.gameObject.tag == "Spikes")
+        {
+            GameoverPanel.SetActive(true);
+        }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            GameoverPanel.SetActive(true);
+        }
+        if (collision.gameObject.tag == "EndGame")
+        {
+
+           
+            SceneManager.LoadScene("Level4load");
+
         }
 
     }
