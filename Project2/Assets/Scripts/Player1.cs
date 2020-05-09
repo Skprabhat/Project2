@@ -22,6 +22,7 @@ public class Player1 : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
     private Rigidbody2D rb;
+    private CameraMovement CM;
 
     private bool isGrounded;
     private bool isJumping;
@@ -32,6 +33,7 @@ public class Player1 : MonoBehaviour
     {
         Time.timeScale = 1;
         rb = this.GetComponent<Rigidbody2D>();
+        CM = GameObject.Find("CamShake").GetComponent<CameraMovement>();
     }
     // Update is called once per frame
     void Update()
@@ -51,9 +53,10 @@ public class Player1 : MonoBehaviour
         {
             if (EndTimer < 0)
             {
-                panel.SetActive(false);
-                lvl1 = false;
                 SceneManager.LoadScene("MainScene");
+               // panel.SetActive(false);
+                lvl1 = false;
+              
             }
             else
             {
@@ -114,6 +117,7 @@ public class Player1 : MonoBehaviour
         if (waterTimer < 0)
         {
             FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+            Debug.Log("insidw water");
             EndGame();
         }
     }
@@ -122,6 +126,8 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Spikes"))
         {
             FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+            Debug.Log("spikes");
+
             EndGame();
         }
         if (collision.gameObject.CompareTag("Water"))
@@ -131,11 +137,15 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
+            Debug.Log("bullet");
+
             EndGame();
         }
         if(collision.gameObject.CompareTag("Finish"))
         {
             panel.SetActive(true);
+
+            CM.speed = 0f;
             lvl1 = true;
         }
         //if(collision.gameObject.CompareTag("EndGame"))
