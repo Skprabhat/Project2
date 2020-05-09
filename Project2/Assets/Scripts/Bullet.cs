@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+           // Debug.Log("gg");
             Destroy(gameObject);
         }
     }

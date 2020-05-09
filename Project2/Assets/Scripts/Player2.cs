@@ -215,6 +215,22 @@ public class Player2 : MonoBehaviour
         {
             dPush = true;
         }
+        if (collision.gameObject.tag == "Spikes")
+        {
+            GameoverPanel.SetActive(true);
+        }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            GameoverPanel.SetActive(true);
+        }
+        if (collision.gameObject.tag == "EndGame")
+        {
+
+
+            SceneManager.LoadScene("Level4load");
+
+        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -237,22 +253,7 @@ public class Player2 : MonoBehaviour
         {
             dPush = false;
         }
-        if (collision.gameObject.tag == "Spikes")
-        {
-            GameoverPanel.SetActive(true);
-        }
-
-        if (collision.gameObject.tag == "Bullet")
-        {
-            GameoverPanel.SetActive(true);
-        }
-        if (collision.gameObject.tag == "EndGame")
-        {
-
-           
-            SceneManager.LoadScene("Level4load");
-
-        }
+      
 
     }
 
