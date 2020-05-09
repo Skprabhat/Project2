@@ -17,6 +17,7 @@ public class Player1 : MonoBehaviour
     private float inputX;
 
     public float waterTimer = 6f;
+    private float EndTimer = 3f;
 
     public Transform groundCheck;
     public LayerMask whatIsGround;
@@ -25,6 +26,8 @@ public class Player1 : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
     private bool inWater;
+    private bool lvl1 = false;
+    public GameObject panel;
     void Start()
     {
         Time.timeScale = 1;
@@ -44,6 +47,19 @@ public class Player1 : MonoBehaviour
         watertimer();
 
         EndGame();
+        if(lvl1)
+        {
+            if (EndTimer < 0)
+            {
+                panel.SetActive(false);
+                lvl1 = false;
+                SceneManager.LoadScene("MainScene");
+            }
+            else
+            {
+                EndTimer -= Time.deltaTime;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -117,6 +133,15 @@ public class Player1 : MonoBehaviour
             FindObjectOfType<UIManager>().GameOverMenu.SetActive(true);
             EndGame();
         }
+        if(collision.gameObject.CompareTag("Finish"))
+        {
+            panel.SetActive(true);
+            lvl1 = true;
+        }
+        //if(collision.gameObject.CompareTag("EndGame"))
+        //{
+        //    SceneManager.LoadScene("MainScene1");
+        //}
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -126,15 +151,7 @@ public class Player1 : MonoBehaviour
         }
         if (collision.gameObject.tag == "EndGame2")
         {
-            //gameObject.SetActive(false);
-
             SceneManager.LoadScene("Load2");
-        }
-        if (collision.gameObject.tag == "EndGame1")
-        {
-          //  gameObject.SetActive(false);
-
-            SceneManager.LoadScene("Load1");
         }
     }
  

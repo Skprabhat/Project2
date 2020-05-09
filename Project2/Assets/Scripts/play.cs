@@ -134,11 +134,9 @@ public class play : MonoBehaviour
         }
         if (collision.gameObject.tag == "EndGame")
         {
-         
             gameObject.SetActive(false);
             player2.SetActive(true);
-            SceneManager.LoadScene("Level3load");
-            
+            SceneManager.LoadScene("MainScene 1");
         }
         if (collision.gameObject.tag == "EndGame3")
         {

@@ -65,10 +65,9 @@ public class Player2 : MonoBehaviour
             Pausepanel.SetActive(true);
             //Time.timeScale = 0;
         }
-        else
+        if(!isPause)
         {
             Pausepanel.SetActive(false);
-            //Time.timeScale = 1;
         }
 
         if (gameObject.transform.position.y < -4f)
