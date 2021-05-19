@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae6669677a9d3040ba7983309dc4529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 20
   jumpPower: 15
   sprite: {fileID: 330606452}
 --- !u!50 &330606450
