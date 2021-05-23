@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 334773379908942557}
   - component: {fileID: 334773379908942556}
   - component: {fileID: 334773379908942559}
+  - component: {fileID: -6657154468200979485}
   m_Layer: 8
   m_Name: BlueCircle (1)
   m_TagString: Planet 1
@@ -132,3 +133,15 @@ MonoBehaviour:
   planetRadius: 2
   gravityMinRange: 1
   gravityMaxRange: 2
+--- !u!114 &-6657154468200979485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334773379908942558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d00dc0b58a0ff94fa8c0ddc9b1efaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
