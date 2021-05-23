@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   
     public float moveSpeed=10f, jumpPower=10f;
     public SpriteRenderer sprite;
 
     Rigidbody2D body;
-    bool isGrounded;
+    public bool isGrounded = false;
     float horizontal;
-
+   
+    
     // Start is called before the first frame update
     void Start()
     {
+       
         body = GetComponent<Rigidbody2D>();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+           isGrounded = true;
+        }
+        
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
 
+        {
+            isGrounded = false;
+        }
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -39,10 +57,12 @@ public class PlayerMovement : MonoBehaviour
     {
         //if (isGrounded)
         //{
+        
             body.AddForce(transform.right * horizontal * moveSpeed);
         //}
         //sprite.flipX = horizontal > 0 ? false : (horizontal < 0 ? true : sprite.flipX);
     }
+    
 
     void OnTriggerStay2D(Collider2D obj)
     {
@@ -67,4 +87,5 @@ public class PlayerMovement : MonoBehaviour
             body.drag = 0.2f;
         }
     }
+   
 }
