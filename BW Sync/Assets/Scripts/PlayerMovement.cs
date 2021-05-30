@@ -9,30 +9,75 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sprite;
 
     Rigidbody2D body;
+    CircleCollider2D cc;
+    SpriteRenderer sr;
+
+    string circleName;
+
     public bool isGrounded = false;
     float horizontal;
     public GameObject pivot;
+    Vector3 upDir;
     Rigidbody2D rb;
     float flip = 0f;
     int c;
+    bool move = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Rigidbody2D>();
+         cc = GetComponent<CircleCollider2D>();
+         sr = GetComponent<SpriteRenderer>();
+
     }
     void Update()
     {
         //horizontal = Input.GetAxisRaw("Horizontal");
 
+       // if(pivot.transform.rotation != Quaternion.Euler(0, 0, 0))
+       // {
+       //     pivot.transform.rotation = Quaternion.Euler(0, 0, 0);
+       // }
         if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
-            body.AddForce(pivot.transform.up * jumpPower/2, ForceMode2D.Impulse);
+                
+
+            //transform.Translate(transform.up * jumpPower * Time.deltaTime);
+
+            if (move)
+            {
+                //body.AddForce(pivot.transform.up * jumpPower / 2, ForceMode2D.Impulse);
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                transform.Translate(pivot.transform.up * jumpPower * Time.deltaTime);
+
+            }
+            else
+            {
+                //  body.AddForce(-pivot.transform.up * jumpPower / 2, ForceMode2D.Impulse);
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                transform.Translate(-pivot.transform.up * jumpPower * Time.deltaTime);
+
+            }
         }
         if(!isGrounded)
         {
-            transform.Translate(pivot.transform.up * jumpPower * Time.deltaTime);
 
+            //transform.Translate(transform.up * jumpPower * Time.deltaTime);
+
+             if (move)
+             {
+                 transform.Translate(pivot.transform.up * jumpPower * Time.deltaTime);
+
+
+             }
+             else
+             {
+                 transform.Translate(-pivot.transform.up * jumpPower * Time.deltaTime);
+
+             }
         }
 
     }
@@ -58,11 +103,10 @@ public class PlayerMovement : MonoBehaviour
             ContactPoint2D contact = collision.contacts[0];
             Vector2 pos = contact.point;
             transform.position = pos;
-            transform.rotation = transform.rotation;
-            pivot.transform.eulerAngles = Vector3.forward * flip ;
-            
-
-            flip += 180f;
+            //collision.gameObject.transform.up = upDir;
+           // transform.rotation = transform.rotation;
+            // circleName = collision.gameObject.name ;
+            Invoke("Flip", 0.1f);
           
             gameObject.transform.SetParent(collision.collider.gameObject.transform);
           
@@ -84,6 +128,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+    }
+
+    void Flip()
+    {
+        Debug.Log("Inside flip");
+        //pivot.transform.eulerAngles.z = 0;
+        // pivot.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //pivot.transform.eulerAngles = Vector3.forward * flip;
+        move = !move;
+        //flip += 180f;
     }
     /*private void OnCollisionExit2D(Collision2D collision)
     {
