@@ -21,16 +21,20 @@ public class Spawner : MonoBehaviour
     {
         if (timeBtwSpawns <= 0)
         {
-
-            rand = Random.Range(0, Object.Length);
-            randposition = Random.Range(0, Positions.Length);
-            Instantiate(Object[rand], Positions[randposition].transform.position, Quaternion.identity);
+            Spawn();
             timeBtwSpawns = startTimeBtwSpawns;
         }
         else
         {
             timeBtwSpawns -= Time.deltaTime;
         }
+    }
+
+    public void Spawn()
+    {
+        rand = Random.Range(0, Object.Length);
+        randposition = Random.Range(0, Positions.Length);
+        Instantiate(Object[rand], Positions[randposition].transform.position, Quaternion.identity);
     }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleController : MonoBehaviour
 {
-    float degree = 50f;
+    public float degree = 50f;
     int a;
     // Start is called before the first frame update
     void Start()

@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 2904665028243180843}
   - component: {fileID: 2904665028243180842}
   - component: {fileID: 2904665028243180845}
-  - component: {fileID: 2904665028243180844}
-  - component: {fileID: 2904665028243180847}
   - component: {fileID: -7925922099097077710}
   m_Layer: 8
   m_Name: BlueCircle
@@ -73,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f743ae65363a58b4bb63d471b4978b1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,39 +98,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.039899588, y: 0.09967613}
   serializedVersion: 2
-  m_Radius: 2.2210739
---- !u!58 &2904665028243180844
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2904665028243180846}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
---- !u!114 &2904665028243180847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2904665028243180846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00ae680e9a1919b46837774b527c2ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityScale: 12
-  planetRadius: 2
-  gravityMinRange: 1
-  gravityMaxRange: 2
+  m_Radius: 2.3
 --- !u!114 &-7925922099097077710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d00dc0b58a0ff94fa8c0ddc9b1efaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degree: 79

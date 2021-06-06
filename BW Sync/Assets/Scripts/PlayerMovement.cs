@@ -16,86 +16,42 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isGrounded = false;
     float horizontal;
-    public GameObject pivot;
+    //public GameObject pivot;
     Vector3 upDir;
     Rigidbody2D rb;
     float flip = 0f;
     int c;
     bool move = false;
-    // Start is called before the first frame update
+    Spawner spawn;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         body = GetComponent<Rigidbody2D>();
-         cc = GetComponent<CircleCollider2D>();
-         sr = GetComponent<SpriteRenderer>();
-
+        //spawn = GameObject.Find("SpawnPoints").GetComponent<Spawner>();
     }
+   
+  
     void Update()
     {
-        //horizontal = Input.GetAxisRaw("Horizontal");
-
-       // if(pivot.transform.rotation != Quaternion.Euler(0, 0, 0))
-       // {
-       //     pivot.transform.rotation = Quaternion.Euler(0, 0, 0);
-       // }
         if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
-                
-
-            //transform.Translate(transform.up * jumpPower * Time.deltaTime);
+            body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
 
             if (move)
             {
-                //body.AddForce(pivot.transform.up * jumpPower / 2, ForceMode2D.Impulse);
-                //transform.rotation = Quaternion.Euler(0, 0, 0);
-
-                transform.Translate(pivot.transform.up * jumpPower * Time.deltaTime);
+                body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
 
             }
-            else
+            else if (move)
             {
-                //  body.AddForce(-pivot.transform.up * jumpPower / 2, ForceMode2D.Impulse);
-                //transform.rotation = Quaternion.Euler(0, 0, 0);
-
-                transform.Translate(-pivot.transform.up * jumpPower * Time.deltaTime);
+                body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
 
             }
         }
-        if(!isGrounded)
-        {
-
-            //transform.Translate(transform.up * jumpPower * Time.deltaTime);
-
-             if (move)
-             {
-                 transform.Translate(pivot.transform.up * jumpPower * Time.deltaTime);
-
-
-             }
-             else
-             {
-                 transform.Translate(-pivot.transform.up * jumpPower * Time.deltaTime);
-
-             }
-        }
-
-    }
-    /*void FixedUpdate()
-    {
-        if (isGrounded)
-        {
-            //rb.constraints = RigidbodyConstraints2D.None;
-
-            body.AddForce(transform.right * moveSpeed);
-        }
-        //sprite.flipX = horizontal > 0 ? false : (horizontal < 0 ? true : sprite.flipX);
-       
-           // rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+      
       
 
 
-    }*/
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Planet 1")
@@ -103,19 +59,28 @@ public class PlayerMovement : MonoBehaviour
             ContactPoint2D contact = collision.contacts[0];
             Vector2 pos = contact.point;
             transform.position = pos;
-            //collision.gameObject.transform.up = upDir;
-           // transform.rotation = transform.rotation;
-            // circleName = collision.gameObject.name ;
-            Invoke("Flip", 0.1f);
-          
+
+            SetPlayerUp(gameObject.transform, collision.gameObject.transform);   
+
             gameObject.transform.SetParent(collision.collider.gameObject.transform);
           
             isGrounded = true;
         }
+
+       
+       
         
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Coin")
+        {
+            collision.gameObject.SetActive(false);
+            //spawn.Spawn();
+        }
+    }
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -123,67 +88,17 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             gameObject.transform.parent = null;
-           // rb.isKinematic = true;
 
         }
 
 
     }
-
-    void Flip()
+    static void SetPlayerUp(Transform player, Transform planet)
     {
-        Debug.Log("Inside flip");
-        //pivot.transform.eulerAngles.z = 0;
-        // pivot.transform.rotation = Quaternion.Euler(0, 0, 0);
-        //pivot.transform.eulerAngles = Vector3.forward * flip;
-        move = !move;
-        //flip += 180f;
+        player.rotation = Quaternion.LookRotation(Vector3.forward,
+                player.position - planet.position);
     }
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
 
-        {
-            isGrounded = false;
-        }
-        
-    }
-    // Update is called once per frame
    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
-
-    
-    
-
-    void OnTriggerStay2D(Collider2D obj)
-    {
-        if (obj.CompareTag("Planet 1"))
-        {
-            body.drag = 1f;
-
-            float distance = Mathf.Abs(obj.GetComponent<GravityPoint>().planetRadius - Vector2.Distance(transform.position, obj.transform.position));
-            if (distance < 1f)
-            {
-                isGrounded = distance < 0.93f;
-                Debug.Log(distance);
-
-            }
-
-           
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D obj)
-    {
-        if (obj.CompareTag("Planet 1"))
-        {
-            body.drag = 0.2f;
-        }
-    }*/
 
 }
