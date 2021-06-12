@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
    
     public float moveSpeed=10f, jumpPower=10f;
     public SpriteRenderer sprite;
+    public GameObject GameOver;
+    public GameObject Score;
 
     Rigidbody2D body;
     CircleCollider2D cc;
@@ -76,9 +79,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Coin")
         {
+
             collision.gameObject.SetActive(false);
             //spawn.Spawn();
         }
+        if (collision.gameObject.tag == "Coins")
+        {
+            ScoreManager.instance.AddPoint();
+            collision.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            //GameObject.SetActive(true);
+            Debug.Log("hit");
+            GameOver.SetActive(true);
+            Score.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Walls")
+        {
+            //GameObject.SetActive(true);
+            Debug.Log("hit");
+            GameOver.SetActive(true);
+            //Score.SetActive(false);
+        }
+
+
     }
 
 
