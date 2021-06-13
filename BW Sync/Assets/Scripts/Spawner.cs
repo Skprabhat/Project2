@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 
     private int rand;
     private int randposition;
+    //public int coinSpawnCount = 2;
 
     public float startTimeBtwSpawns;
     private float timeBtwSpawns;
@@ -16,13 +17,14 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         timeBtwSpawns = startTimeBtwSpawns;
+        Spawn();
+
     }
     private void Update()
     {
         if (timeBtwSpawns <= 0)
         {
             Spawn();
-            timeBtwSpawns = startTimeBtwSpawns;
         }
         else
         {
@@ -32,9 +34,14 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
-        rand = Random.Range(0, Object.Length);
-        randposition = Random.Range(0, Positions.Length);
-        Instantiate(Object[rand], Positions[randposition].transform.position, Quaternion.identity);
+        
+            rand = Random.Range(0, Object.Length);
+            randposition = Random.Range(0, Positions.Length);
+            Instantiate(Object[rand], Positions[randposition].transform.position, Quaternion.identity);
+            timeBtwSpawns = startTimeBtwSpawns;
+
+
+
     }
-    }
+}
 

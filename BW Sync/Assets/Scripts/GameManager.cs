@@ -5,18 +5,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject coins;
+    public GameObject gameOverPanel;
     bool isCoinsNotActive ;
+    public LevelManager lvlManager;
+    public bool isNormalMode ;
    
 
     void Update()
     {
-        isCoinsNotActive = CheckForActiveCoins();
-
-        if(isCoinsNotActive)
+        if(isNormalMode)
         {
-            //set canvas active
-            Debug.Log("coins are done");
+            isCoinsNotActive = CheckForActiveCoins();
+
+            if (isCoinsNotActive)
+            {
+                //set canvas active
+                //Time.timeScale = 0;//pause game
+                Invoke("LoadScene", 1f);
+            }
         }
+      
     }
 
     bool CheckForActiveCoins()
@@ -29,6 +37,14 @@ public class GameManager : MonoBehaviour
             }
         }
         return true;
+
+    }
+
+    public void LoadScene()
+    {
+        Debug.Log("inside GM load scene");
+        lvlManager.LoadNextLvl();
+        //Time.timeScale = 1;//load scene and unpause
 
     }
 

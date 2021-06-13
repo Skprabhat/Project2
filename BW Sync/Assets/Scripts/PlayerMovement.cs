@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sprite;
     public GameObject GameOver;
     public GameObject Score;
+    public bool isNormalMode;
 
     Rigidbody2D body;
     CircleCollider2D cc;
@@ -29,7 +30,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        //spawn = GameObject.Find("SpawnPoints").GetComponent<Spawner>();
+        if(!isNormalMode)
+        {
+            spawn = GameObject.Find("SpawnPoints").GetComponent<Spawner>();
+        }
     }
    
   
@@ -77,31 +81,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.tag == "Coin")
         {
-
-            collision.gameObject.SetActive(false);
-            //spawn.Spawn();
-        }
-        if (collision.gameObject.tag == "Coins")
-        {
-            ScoreManager.instance.AddPoint();
+            if(!isNormalMode)
+            {
+                ScoreManager.instance.AddPoint();
+                spawn.Spawn();
+                collision.gameObject.SetActive(false);
+            }
             collision.gameObject.SetActive(false);
         }
         if (collision.gameObject.tag == "Wall")
         {
             //GameObject.SetActive(true);
             Debug.Log("hit");
+            if (!isNormalMode)
+            {
+                Score.SetActive(false);
+                GameOver.SetActive(true);
+
+            }
             GameOver.SetActive(true);
-            Score.SetActive(false);
         }
-        if (collision.gameObject.tag == "Walls")
-        {
-            //GameObject.SetActive(true);
-            Debug.Log("hit");
-            GameOver.SetActive(true);
-            //Score.SetActive(false);
-        }
+       
 
 
     }

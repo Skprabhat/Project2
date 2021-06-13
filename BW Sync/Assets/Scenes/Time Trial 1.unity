@@ -941,7 +941,7 @@ MonoBehaviour:
   - {fileID: 98703126}
   Object:
   - {fileID: 9081304522645238451, guid: 2204364b1a4749941abcaea3878d563c, type: 3}
-  startTimeBtwSpawns: 3
+  startTimeBtwSpawns: 5
 --- !u!1 &755121476
 GameObject:
   m_ObjectHideFlags: 0
