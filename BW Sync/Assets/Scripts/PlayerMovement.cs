@@ -104,7 +104,19 @@ public class PlayerMovement : MonoBehaviour
             }
             GameOver.SetActive(true);
         }
-       
+
+        if (collision.gameObject.tag == "Walls")
+        {
+            //GameObject.SetActive(true);
+            Debug.Log("hit");
+            if (!isNormalMode)
+            {
+                //Score.SetActive(false);
+                GameOver.SetActive(true);
+
+            }
+            GameOver.SetActive(true);
+        }
 
 
     }
