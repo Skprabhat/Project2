@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject GameOver;
     public GameObject Score;
     public bool isNormalMode;
+    private Shake shake;
 
     Rigidbody2D body;
     CircleCollider2D cc;
@@ -29,59 +30,57 @@ public class PlayerMovement : MonoBehaviour
     Spawner spawn;
     void Start()
     {
+        
         body = GetComponent<Rigidbody2D>();
-        if(!isNormalMode)
+        
+
+        if (!isNormalMode)
         {
             spawn = GameObject.Find("SpawnPoints").GetComponent<Spawner>();
         }
+        shake = GameObject.FindGameObjectWithTag("Planet 1").GetComponent<Shake>();
+
     }
    
   
     void Update()
     {
+
         if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
             body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
-
             if (move)
             {
-                body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
-
+                body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse); 
             }
             else if (move)
             {
                 body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
-
             }
         }
-      
-      
-
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Planet 1")
         {
+          
             ContactPoint2D contact = collision.contacts[0];
             Vector2 pos = contact.point;
             transform.position = pos;
-
-            SetPlayerUp(gameObject.transform, collision.gameObject.transform);   
-
+            SetPlayerUp(gameObject.transform, collision.gameObject.transform);
             gameObject.transform.SetParent(collision.collider.gameObject.transform);
-          
             isGrounded = true;
-        }
+            
+            shake.CamShake();
 
+        }
        
-       
-        
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.tag == "Coin")
         {
             if(!isNormalMode)
@@ -126,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.collider.tag == "Planet 1")
         {
+            
             isGrounded = false;
             gameObject.transform.parent = null;
 

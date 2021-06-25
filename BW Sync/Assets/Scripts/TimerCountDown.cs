@@ -40,6 +40,7 @@ public class TimerCountDown : MonoBehaviour
 
         if (secondsLeft == 0) 
         {
+            Time.timeScale = 0;
             Timer.SetActive(false);
             Score.SetActive(false);
             GameOver.SetActive(true);

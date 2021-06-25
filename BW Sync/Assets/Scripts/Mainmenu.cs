@@ -16,6 +16,7 @@ public class Mainmenu : MonoBehaviour
     }
     public void Restart1()
     {
+        
         SceneManager.LoadScene("Level 1");
     }
     public void Restart2()
