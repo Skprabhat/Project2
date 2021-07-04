@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spawn = GameObject.Find("SpawnPoints").GetComponent<Spawner>();
         }
-        shake = GameObject.FindGameObjectWithTag("Planet 1").GetComponent<Shake>();
+        shake = GameObject.FindGameObjectWithTag("CamShake").GetComponent<Shake>();
 
     }
    

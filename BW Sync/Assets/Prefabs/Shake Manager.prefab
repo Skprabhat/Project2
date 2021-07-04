@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6309087521898313735}
   m_Layer: 0
   m_Name: Shake Manager
-  m_TagString: Planet 1
+  m_TagString: CamShake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - Coins
   - Wall
   - Walls
+  - CamShake
   layers:
   - Default
   - TransparentFX
