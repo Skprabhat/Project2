@@ -2015,6 +2015,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -178
       objectReference: {fileID: 0}
+    - target: {fileID: 2481589107128640773, guid: f95f614809a17df4bb01dc9a055476e1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481589107128640773, guid: f95f614809a17df4bb01dc9a055476e1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2481589107290455344, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: PausePanel
