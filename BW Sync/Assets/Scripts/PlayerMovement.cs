@@ -10,6 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sprite;
     public GameObject GameOver;
     public GameObject Score;
+
+    public GameObject coinEffecct;
+    public GameObject playerHitEffecct;
+
+   
+
+
     public bool isNormalMode;
     private Shake shake;
 
@@ -59,20 +66,29 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    void ShowEffeccct(GameObject effect,Vector3 pos) // to instantiate particle system
+    {
+        GameObject effecct = Instantiate(effect, pos, transform.rotation);// Quaternion.identity
+        var ps = effecct.GetComponent<ParticleSystem>();
+        Destroy(effecct, ps.main.duration + 0.1f);
+ 
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Planet 1")
         {
-          
-            ContactPoint2D contact = collision.contacts[0];
+ 
+                  ContactPoint2D contact = collision.contacts[0];
             Vector2 pos = contact.point;
+            ShowEffeccct(playerHitEffecct, pos);
+
             transform.position = pos;
             SetPlayerUp(gameObject.transform, collision.gameObject.transform);
             gameObject.transform.SetParent(collision.collider.gameObject.transform);
             isGrounded = true;
             
             shake.CamShake();
-
         }
        
     }
@@ -87,13 +103,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 ScoreManager.instance.AddPoint();
                 spawn.Spawn();
-                collision.gameObject.SetActive(false);
             }
             collision.gameObject.SetActive(false);
+            ShowEffeccct(coinEffecct, collision.gameObject.transform.position);
         }
         if (collision.gameObject.tag == "Wall")
         {
-            //GameObject.SetActive(true);
             Debug.Log("hit");
             if (!isNormalMode)
             {
@@ -106,19 +121,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Walls")
         {
-            //GameObject.SetActive(true);
             Debug.Log("hit");
             if (!isNormalMode)
             {
-                //Score.SetActive(false);
                 GameOver.SetActive(true);
 
             }
             GameOver.SetActive(true);
         }
 
+       
 
     }
+  
 
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -128,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
             
             isGrounded = false;
             gameObject.transform.parent = null;
+
 
         }
 
