@@ -1841,6 +1841,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverNormal
       objectReference: {fileID: 0}
+    - target: {fileID: 8916942422632684189, guid: c1a6e96a735dee94b87fcb22d57b9b5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8916942423214838092, guid: c1a6e96a735dee94b87fcb22d57b9b5f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2294,17 +2299,27 @@ PrefabInstance:
     - target: {fileID: 2481589106913587977, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2481589106913587977, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481589106913587977, guid: f95f614809a17df4bb01dc9a055476e1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.8
       objectReference: {fileID: 0}
     - target: {fileID: 2481589107128640773, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -186
+      value: -84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481589107128640773, guid: f95f614809a17df4bb01dc9a055476e1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 2481589107290455344, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
@@ -2429,17 +2444,17 @@ PrefabInstance:
     - target: {fileID: 2481589107469943025, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2481589107469943025, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2481589107469943025, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -93
+      value: -22.9
       objectReference: {fileID: 0}
     - target: {fileID: 2481589107738807567, guid: f95f614809a17df4bb01dc9a055476e1,
         type: 3}

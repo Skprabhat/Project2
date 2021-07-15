@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
             if(!isNormalMode)
             {
                 ScoreManager.instance.AddPoint();
-                spawn.Spawn();
+                //spawn.Spawn();
             }
             collision.gameObject.SetActive(false);
             ShowEffeccct(coinEffecct, collision.gameObject.transform.position);
