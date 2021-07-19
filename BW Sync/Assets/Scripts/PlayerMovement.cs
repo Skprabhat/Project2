@@ -52,8 +52,8 @@ public class PlayerMovement : MonoBehaviour
   
     void Update()
     {
-
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
+        if (Input.touchCount == 1 && isGrounded == true)
+        //if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
             body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
             if (move)

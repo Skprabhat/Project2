@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  jumpPower: 10
+  jumpPower: 5
   sprite: {fileID: 8300082122295808089}
   GameOver: {fileID: 0}
   Score: {fileID: 0}
