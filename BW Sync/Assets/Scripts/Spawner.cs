@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Transform[] Positions;
-    public GameObject[] Object;
+    public GameObject Object;
 
     private int rand;
     private int randposition;
@@ -35,9 +35,8 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         
-            rand = Random.Range(0, Object.Length);
             randposition = Random.Range(0, Positions.Length);
-            Instantiate(Object[rand], Positions[randposition].transform.position, Quaternion.identity);
+            Instantiate(Object, Positions[randposition].transform.position, Quaternion.identity);
             timeBtwSpawns = startTimeBtwSpawns;
 
 

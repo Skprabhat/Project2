@@ -52,18 +52,18 @@ public class PlayerMovement : MonoBehaviour
   
     void Update()
     {
-        if (Input.touchCount == 1 && isGrounded == true)
-        //if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
+        //if (Input.touchCount == 1 && isGrounded == true)
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space)))
         {
             body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
-            if (move)
+          /*  if (move)
             {
                 body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse); 
             }
             else if (move)
             {
                 body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
-            }
+            }*/
         }
     }
 
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.collider.tag == "Planet 1")
         {
  
-                  ContactPoint2D contact = collision.contacts[0];
+            ContactPoint2D contact = collision.contacts[0];
             Vector2 pos = contact.point;
             ShowEffeccct(playerHitEffecct, pos);
 
@@ -102,10 +102,11 @@ public class PlayerMovement : MonoBehaviour
             if(!isNormalMode)
             {
                 ScoreManager.instance.AddPoint();
-                //spawn.Spawn();
+                spawn.Spawn();
             }
             collision.gameObject.SetActive(false);
-            ShowEffeccct(coinEffecct, collision.gameObject.transform.position);
+            Vector3 pos = new Vector3(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z );
+            ShowEffeccct(coinEffecct, pos);
         }
         if (collision.gameObject.tag == "Wall")
         {
@@ -113,29 +114,13 @@ public class PlayerMovement : MonoBehaviour
             if (!isNormalMode)
             {
                 Score.SetActive(false);
-                GameOver.SetActive(true);
 
             }
             GameOver.SetActive(true);
         }
-
-        if (collision.gameObject.tag == "Walls")
-        {
-            Debug.Log("hit");
-            if (!isNormalMode)
-            {
-                GameOver.SetActive(true);
-
-            }
-            GameOver.SetActive(true);
-        }
-
-       
 
     }
-  
-
-
+ 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "Planet 1")

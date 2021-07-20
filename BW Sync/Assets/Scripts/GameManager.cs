@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject coins;
-    public GameObject gameOverPanel;
     bool isCoinsNotActive ;
     public LevelManager lvlManager;
     public bool isNormalMode ;
@@ -19,8 +18,7 @@ public class GameManager : MonoBehaviour
 
             if (isCoinsNotActive)
             {
-                //set canvas active
-                //Time.timeScale = 0;//pause game
+               
                 Invoke("LoadScene", 1f);
             }
         }
@@ -44,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("inside GM load scene");
         lvlManager.LoadNextLvl();
-        //Time.timeScale = 1;//load scene and unpause
+     
 
     }
 

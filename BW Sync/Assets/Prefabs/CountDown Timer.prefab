@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: {fileID: 0}
-  secondsLeft: 30
+  secondsLeft: 90
   TakingAway: 0
   GameOver: {fileID: 0}
+  Score: {fileID: 0}

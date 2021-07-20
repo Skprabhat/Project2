@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public GameObject gameDone;
     
     void Start()
     {
@@ -16,7 +18,15 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("inside load lvl");
         int i = PlayerPrefs.GetInt("SceneIndex");
-        SceneManager.LoadScene(i + 1);
+
+        if(i < 11)
+        {
+            SceneManager.LoadScene(i + 1);
+        }
+        else
+        {
+            gameDone.SetActive(true); 
+        }
     }
 
     public void TimeTrail()
