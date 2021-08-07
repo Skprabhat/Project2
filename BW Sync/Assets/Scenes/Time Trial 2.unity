@@ -507,6 +507,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6691619938246068136, guid: 73c7c532c0bb5db4784cba66636ebf1c,
+        type: 3}
+      propertyPath: GameOver
+      value: 
+      objectReference: {fileID: 1267873201}
     - target: {fileID: 8300082122295808071, guid: 73c7c532c0bb5db4784cba66636ebf1c,
         type: 3}
       propertyPath: m_Name
@@ -2462,7 +2467,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 20.76
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

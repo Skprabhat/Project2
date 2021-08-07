@@ -472,12 +472,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 10.431441
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -486,9 +486,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 30
+  field of view: 98
+  orthographic: 0
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -512,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224235996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: 7, z: -34.9}
+  m_LocalPosition: {x: -5, y: 2.8999996, z: -25.845314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2855,6 +2855,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6691619938246068136, guid: 73c7c532c0bb5db4784cba66636ebf1c,
+        type: 3}
+      propertyPath: GameOver
+      value: 
+      objectReference: {fileID: 1837972064}
     - target: {fileID: 8300082122295808071, guid: 73c7c532c0bb5db4784cba66636ebf1c,
         type: 3}
       propertyPath: m_Name

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class Playermovement : MonoBehaviour
 {
    
     public float moveSpeed=10f, jumpPower=10f;
-    public SpriteRenderer sprite;
+   // public SpriteRenderer sprite;
     public GameObject GameOver;
     public GameObject Score;
 
