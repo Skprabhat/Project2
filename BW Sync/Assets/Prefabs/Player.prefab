@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8300082122295808089}
   - component: {fileID: 8300082122295808088}
   - component: {fileID: 8300082122295808091}
-  - component: {fileID: 8300082122295808092}
+  - component: {fileID: 6691619938246068136}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8300082122295808092
+--- !u!114 &6691619938246068136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,12 +135,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpPower: 10
-  sprite: {fileID: 8300082122295808089}
-  GameOver: {fileID: 0}
+  sprite: {fileID: 0}
+  GameOver: {fileID: 3465918340850816198, guid: a623f29ad95cbd94f9f5f15859788c5a,
+    type: 3}
   Score: {fileID: 0}
   coinEffecct: {fileID: 5463167326471749245, guid: 1126c650e8fd7aa4ea1e96cc0e955cfa,
     type: 3}
   playerHitEffecct: {fileID: 6069069178404556169, guid: 1e044beda2061204cb812c55741e44cc,
     type: 3}
-  isNormalMode: 0
+  isNormalMode: 1
   isGrounded: 0
