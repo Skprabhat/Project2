@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CircleController : MonoBehaviour
 {
-    public float degree = 50f;
+     float degree = 50f;
+    public float speed = 1f; 
     int a;
     // Start is called before the first frame update
     void Start()
@@ -18,13 +19,13 @@ public class CircleController : MonoBehaviour
     {
         if(a == 0 )
         {
-            degree += 1f;
+            degree += speed;
             transform.eulerAngles = Vector3.forward * degree;
 
         }
        else
         {
-            degree -= 1f;
+            degree -= speed;
             transform.eulerAngles = Vector3.forward * degree;
 
         }
