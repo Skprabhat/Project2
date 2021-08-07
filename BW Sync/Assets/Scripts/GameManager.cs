@@ -8,8 +8,12 @@ public class GameManager : MonoBehaviour
     bool isCoinsNotActive ;
     public LevelManager lvlManager;
     public bool isNormalMode ;
-   
 
+    private void Start()
+    {
+        //PlayerPrefs.DeleteAll();
+        
+    }
     void Update()
     {
         if(isNormalMode)
